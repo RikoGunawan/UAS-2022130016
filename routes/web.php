@@ -13,15 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-use App\Http\Controllers\User;
+use App\Http\Controllers\UserController;
 
 //Versi singkat
-Route::resource('users', User::class);
+Route::resource('users', UserController::class);
+Route::resource('/', UserController::class);
