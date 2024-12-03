@@ -46,10 +46,10 @@
                             <a class="nav-link" href="{{ route('pricings.index') }}">{{ __('Pricing') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('computers.index') }}">{{ __('Computers') }}</a>
+                            <a class="nav-link" href="{{ route('sessions.index') }}">{{ __('Sessions') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('computers.index') }}">{{ __('Computers') }}</a>
+                            <a class="nav-link" href="{{ route('payments.index') }}">{{ __('Payments') }}</a>
                         </li>
                     </ul>
 
