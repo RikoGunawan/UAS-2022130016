@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Pricing extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'plan_name',
+        'price',
+        'duration_minutes',
+    ];
 }
+

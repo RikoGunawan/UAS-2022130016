@@ -39,6 +39,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('computers.index') }}">{{ __('Computers') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('games.index') }}">{{ __('Games') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pricings.index') }}">{{ __('Pricing') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('computers.index') }}">{{ __('Computers') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('computers.index') }}">{{ __('Computers') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

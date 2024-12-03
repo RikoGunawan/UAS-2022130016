@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'category',
+        'size_mb',
+        'image_path',
+        'status'
+    ];
+
+    protected $casts = [
+        'status' => 'enum'
+    ];
 }
+
