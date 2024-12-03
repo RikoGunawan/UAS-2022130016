@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Computer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'location',
+        'specifications',
+        'tier',
+        'image_path',
+        'status',
+    ];
 }
+

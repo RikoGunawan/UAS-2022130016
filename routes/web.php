@@ -19,7 +19,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ComputerController;
 
 //Versi singkat
-Route::resource('users', UserController::class);
 Route::resource('/', UserController::class);
+Route::resource('users', UserController::class);
+Route::resource('computers', ComputerController::class);
+

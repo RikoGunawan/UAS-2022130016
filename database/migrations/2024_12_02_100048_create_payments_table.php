@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relasi ke tabel Users
+            $table->foreignId('session_id')->constrained()->onDelete('cascade'); // Relasi ke tabel Sessions
+            $table->decimal('amount', 10, 2)->unsigned(); // Jumlah pembayaran (max 999999.99)
+            $table->enum('status', ['pending', 'completed', 'failed'])->default('pending'); // Status pembayaran
             $table->timestamps();
         });
+
     }
 
     /**

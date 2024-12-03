@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->string('category', 100);
+            $table->integer('size_mb')->unsigned()->default(0);
+            $table->string('image_path')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
+
     }
 
     /**

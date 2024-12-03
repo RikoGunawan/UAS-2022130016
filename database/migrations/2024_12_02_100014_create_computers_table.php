@@ -13,8 +13,16 @@ return new class extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('location', 255);
+            $table->text('specifications');
+            $table->enum('tier', ['tier_1', 'tier_2', 'tier_3'])->default('tier_1');
+            $table->string('image_path')->nullable();
+            $table->enum('status', ['available', 'in_use', 'maintenance'])->default('available');
             $table->timestamps();
         });
+
+
     }
 
     /**
