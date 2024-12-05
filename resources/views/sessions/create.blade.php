@@ -19,18 +19,27 @@
             <div class="mb-3">
                 <label for="user_id" class="form-label">User</label>
                 <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id">
-                    <!-- Populate with users -->
                     <option value="">Select User</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                            {{ $user->name }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="computer_id" class="form-label">Computer</label>
                 <select class="form-control @error('computer_id') is-invalid @enderror" id="computer_id" name="computer_id">
-                    <!-- Populate with computers -->
                     <option value="">Select Computer</option>
+                    @foreach ($computers as $computer)
+                        <option value="{{ $computer->id }}" {{ old('computer_id') == $computer->id ? 'selected' : '' }}>
+                            {{ $computer->name }} ({{ $computer->tier }})
+                        </option>
+                    @endforeach
                 </select>
             </div>
+
 
             <div class="mb-3">
                 <label for="start_time" class="form-label">Start Time</label>

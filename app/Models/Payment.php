@@ -12,6 +12,7 @@ class Payment extends Model
     protected $fillable = [
         'user_id',
         'session_id',
+        'pricing_id',
         'amount',
         'status',
     ];
@@ -29,5 +30,10 @@ class Payment extends Model
     {
         return $this->belongsTo(Session::class);
     }
+
+    public function pricing()
+{
+    return $this->belongsTo(Pricing::class);
+}
 }
 

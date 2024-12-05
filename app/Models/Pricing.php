@@ -19,5 +19,9 @@ class Pricing extends Model
         'price',
         'duration_minutes',
     ];
-}
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+}

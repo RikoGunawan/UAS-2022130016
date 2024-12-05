@@ -16,6 +16,7 @@
                                 <th>ID</th>
                                 <th>User</th>
                                 <th>Session</th>
+                                <th>Plan</th>
                                 <th>Amount</th>
                                 <th>Status</th>
                                 <th>Created At</th>
@@ -30,6 +31,7 @@
                                     <td>{{ $payment->id }}</td>
                                     <td>{{ $payment->user->name }}</td>
                                     <td>{{ $payment->session->id }}</td>
+                                    <td>{{ $payment->pricing->plan_name }}</td>
                                     <td>Rp {{ number_format($payment->amount, 2, ',', '.') }}</td>
                                     <td>{{ $payment->status }}</td>
                                     <td>{{ $payment->created_at->format('d-m-Y H:i') }}</td>

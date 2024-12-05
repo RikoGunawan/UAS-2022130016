@@ -14,6 +14,7 @@ class Session extends Model
         'computer_id',
         'start_time',
         'end_time',
+        'duration',
         'status',
     ];
 
@@ -27,5 +28,10 @@ class Session extends Model
     public function computer()
     {
         return $this->belongsTo(Computer::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
     }
 }

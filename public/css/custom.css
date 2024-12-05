@@ -112,3 +112,8 @@ main {
     color: #6c757d;
     font-size: 14px;
 }
+
+td img {
+    max-width: 100%;
+    height: auto;
+}

@@ -18,24 +18,15 @@
             @csrf
 
             <div class="mb-3">
-                <label for="user_id" class="form-label">User</label>
-                <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id">
-                    <option value="">Select User</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
-                    @endforeach
-                </select>
-                @error('user_id')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="mb-3">
                 <label for="session_id" class="form-label">Session</label>
                 <select class="form-control @error('session_id') is-invalid @enderror" id="session_id" name="session_id">
                     <option value="">Select Session</option>
                     @foreach ($sessions as $session)
-                        <option value="{{ $session->id }}" {{ old('session_id') == $session->id ? 'selected' : '' }}>{{ $session->computer->name }} ({{ $session->start_time->format('d-m-Y H:i') }} - {{ $session->end_time->format('d-m-Y H:i') }})</option>
+                        <option value="{{ $session->id }}" {{ old('session_id') == $session->id ? 'selected' : '' }}>
+                            {{ $session->computer->name }}
+                            ({{ \Carbon\Carbon::parse($session->start_time)->format('d-m-Y H:i') }} -
+                            {{ $session->end_time ? \Carbon\Carbon::parse($session->end_time)->format('d-m-Y H:i') : 'Ongoing' }})
+                        </option>
                     @endforeach
                 </select>
                 @error('session_id')
@@ -44,9 +35,16 @@
             </div>
 
             <div class="mb-3">
-                <label for="amount" class="form-label">Amount</label>
-                <input type="text" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount') }}">
-                @error('amount')
+                <label for="pricing_id">Plan:</label>
+                <select name="pricing_id" class="form-control @error('pricing_id') is-invalid @enderror">
+                    <option value="">Select Plan</option>
+                    @foreach ($pricings as $pricing)
+                        <option value="{{ $pricing->id }}" {{ old('pricing_id') == $pricing->id ? 'selected' : '' }}>
+                            {{ $pricing->plan_name }} - Rp {{ number_format($pricing->price, 0, ',', '.') }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('pricing_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -62,6 +60,13 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+
+            <p class="text-muted">
+                <small>
+                    The total amount will be calculated automatically based on the session duration and the selected plan.
+                </small>
+            </p>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

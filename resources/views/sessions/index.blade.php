@@ -17,6 +17,7 @@
                             <th>Computer</th>
                             <th>Start Time</th>
                             <th>End Time</th>
+                            <th>Duration</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -27,8 +28,9 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $session->user->name }}</td>
                                 <td>{{ $session->computer->name }}</td>
-                                <td>{{ $session->start_time->format('d-m-Y H:i') }}</td>
-                                <td>{{ $session->end_time ? $session->end_time->format('d-m-Y H:i') : '-' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($session->start_time)->format('d-m-Y H:i') }}</td>
+                                <td>{{ $session->end_time ? \Carbon\Carbon::parse($session->end_time)->format('d-m-Y H:i') : '-' }}</td>
+                                <td>{{ $session->duration ?? '-' }}</td>
                                 <td>{{ $session->status }}</td>
                                 <td>
                                     <a href="{{ route('sessions.edit', $session->id) }}" class="btn btn-warning btn-sm">Edit</a>

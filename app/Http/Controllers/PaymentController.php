@@ -15,21 +15,45 @@ class PaymentController extends Controller
 
     public function create()
     {
-        return view('payments.create');
+        $users = \App\Models\User::all();
+        $sessions = \App\Models\Session::all();
+        $pricings = \App\Models\Pricing::all();
+
+        return view('payments.create', compact('users', 'sessions', 'pricings'));
     }
+
+
 
     public function store(Request $request)
     {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
+        $validated = $request->validate([
             'session_id' => 'required|exists:sessions,id',
-            'amount' => 'required|numeric|between:0.01,999999.99',
-            'status' => 'required|in:pending,completed,failed'
+            'pricing_id' => 'required|exists:pricings,id',
+            'status' => 'required|in:pending,completed,cancelled', // Ubah di sini
         ]);
 
-        Payment::create($request->all());
-        return redirect()->route('payments.index')->with('success', 'Payment created successfully');
+        // Ambil data session dan pricing
+        $session = \App\Models\Session::findOrFail($validated['session_id']);
+        $pricing = \App\Models\Pricing::findOrFail($validated['pricing_id']);
+
+        // Hitung durasi aktual dan jumlah unit plan
+        $totalMinutes = $session->duration; // Durasi dari sesi
+        $unitCount = ceil($totalMinutes / $pricing->duration_minutes); // Hitung jumlah plan yang dibutuhkan
+        $totalAmount = $unitCount * $pricing->price; // Total biaya
+
+        // Simpan data pembayaran
+        \App\Models\Payment::create([
+            'user_id' => $session->user_id, // Ambil user dari sesi
+            'session_id' => $session->id,
+            'pricing_id' => $pricing->id,
+            'amount' => $totalAmount,
+            'status' => $validated['status'],
+        ]);
+
+        return redirect()->route('payments.index')->with('success', 'Payment successfully processed.');
     }
+
+
 
     public function edit(Payment $payment)
     {
@@ -41,6 +65,7 @@ class PaymentController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'session_id' => 'required|exists:sessions,id',
+            'pricing_id' => 'required|exists:pricings,id',
             'amount' => 'required|numeric|between:0.01,999999.99',
             'status' => 'required|in:pending,completed,failed'
         ]);
@@ -55,4 +80,3 @@ class PaymentController extends Controller
         return redirect()->route('payments.index')->with('success', 'Payment deleted successfully');
     }
 }
-
