@@ -26,7 +26,7 @@
     <div id="app">
         <div class="custom-navbar">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Gaming Cafe') }}
             </a>
 
             <ul class="navbar-links navbar-left">

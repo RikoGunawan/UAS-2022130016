@@ -24,9 +24,10 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\GamingCafeController;
 
 //Versi singkat
-Route::resource('/', UserController::class);
+Route::resource('/', GamingCafeController::class);
 Route::resource('users', UserController::class);
 Route::resource('computers', ComputerController::class);
 Route::resource('games', GameController::class);

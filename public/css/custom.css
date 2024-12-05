@@ -117,3 +117,69 @@ td img {
     max-width: 100%;
     height: auto;
 }
+
+
+/* KARTU */
+
+.photo-frame {
+    border: 5px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.photo-frame:hover {
+    transform: scale(1.05);
+}
+
+.photo-frame-img {
+    border: 3px solid #ccc;
+    padding: 5px;
+    background-color: #f8f8f8;
+}
+
+/* KARTU DETAIL SHOW */
+
+.photo-frame-detail {
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.photo-frame-detail-img {
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.stats-box {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+}
+
+.table-transparent {
+    border: none;
+}
+
+.table-transparent th, .table-transparent td {
+    border: none;
+}
+
+/* TABEL STATS */
+.table-bordered td:first-child {
+    background-color: rgba(13, 202, 240, 0.5);
+    color: black;
+}
+
+.table-bordered td:last-child {
+    background-color: white;
+    color: black;
+}
