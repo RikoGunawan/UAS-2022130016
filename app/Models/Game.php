@@ -17,8 +17,5 @@ class Game extends Model
         'status'
     ];
 
-    protected $casts = [
-        'status' => 'enum'
-    ];
 }
 
