@@ -165,15 +165,15 @@ td img {
     margin-top: 10px;
 }
 
-.table-transparent {
+/* .table-transparent {
     border: none;
 }
 
 .table-transparent th, .table-transparent td {
     border: none;
-}
+} */
 
-/* TABEL STATS */
+/* TABEL STATS
 .table-bordered td:first-child {
     background-color: rgba(13, 202, 240, 0.5);
     color: black;
@@ -182,4 +182,4 @@ td img {
 .table-bordered td:last-child {
     background-color: white;
     color: black;
-}
+} */
