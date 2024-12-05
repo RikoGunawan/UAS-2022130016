@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pokemon;
 use Illuminate\Http\Request;
 use App\Models\Computer;
 
@@ -14,7 +13,7 @@ class GamingCafeController extends Controller
 
     public function index()
     {
-        $computers = Computer::paginate(9); //Untuk membagi penampilan data
+        $computers = Computer::paginate(12); //Untuk membagi penampilan data
         return view('gamingcafe', compact('computers'));
 
     }

@@ -118,7 +118,6 @@ td img {
     height: auto;
 }
 
-
 /* KARTU */
 
 .photo-frame {
@@ -127,6 +126,12 @@ td img {
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .photo-frame:hover {
@@ -137,6 +142,9 @@ td img {
     border: 3px solid #ccc;
     padding: 5px;
     background-color: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* KARTU DETAIL SHOW */
@@ -165,21 +173,3 @@ td img {
     margin-top: 10px;
 }
 
-/* .table-transparent {
-    border: none;
-}
-
-.table-transparent th, .table-transparent td {
-    border: none;
-} */
-
-/* TABEL STATS
-.table-bordered td:first-child {
-    background-color: rgba(13, 202, 240, 0.5);
-    color: black;
-}
-
-.table-bordered td:last-child {
-    background-color: white;
-    color: black;
-} */

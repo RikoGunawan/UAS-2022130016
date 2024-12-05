@@ -28,7 +28,7 @@
                                     <td>{{ $computer->id }}</td>
                                     <td style="width: 15%;">
                                         @if ($computer->tier == 'tier_1')
-                                            <img src="{{ asset('images/pc_tier1.jpeg') }}" class="img-thumbnail">
+                                            <img src="{{ asset('images/pc_tier1.png') }}" class="img-thumbnail">
                                         @elseif($computer->tier == 'tier_2')
                                             <img src="{{ asset('images/pc_tier2.jpg') }}" class="img-thumbnail">
                                         @elseif($computer->tier == 'tier_3')

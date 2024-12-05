@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
+    <div class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             @foreach ($computers as $computer)
-                <div class="col-md-4 mb-4">
+                <div class="col">
                     <div class="card photo-frame" style="width: 18rem;">
                         <a href="{{ route('computers.show', $computer) }}">
                             <img src="
                                 @if ($computer->tier == 'tier_1')
-                                    {{ asset('images/pc_tier1.jpeg') }}
+                                    {{ asset('images/pc_tier1.png') }}
                                 @elseif($computer->tier == 'tier_2')
                                     {{ asset('images/pc_tier2.jpg') }}
                                 @elseif($computer->tier == 'tier_3')
@@ -31,11 +31,11 @@
                                 </a>
                             </h5>
                             <span class="badge rounded-pill bg-info">Tier: {{ $computer->tier }}</span>
-                            <div class="mt-2">
+
                                 <span class="badge rounded-pill bg-{{ $computer->status == 'available' ? 'success' : 'danger' }}">
                                     {{ ucfirst($computer->status) }}
                                 </span>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -46,3 +46,5 @@
         </div>
     </div>
 @endsection
+
+
