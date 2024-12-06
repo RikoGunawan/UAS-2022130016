@@ -10,6 +10,21 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::all();
+
+        // Ambil data session dan pricing
+        foreach ($payments as $payment) {
+            $session = \App\Models\Session::findOrFail($payment->session_id);
+            $pricing = \App\Models\Pricing::findOrFail($payment->pricing_id);
+
+            // Hitung durasi aktual dan jumlah unit plan
+            $totalMinutes = $session->end_time ? \Carbon\Carbon::parse($session->end_time)->diffInMinutes(\Carbon\Carbon::parse($session->start_time)) : \Carbon\Carbon::now()->diffInMinutes(\Carbon\Carbon::parse($session->start_time));
+            $unitCount = ceil($totalMinutes / $pricing->duration_minutes); // Hitung jumlah plan yang dibutuhkan
+            $totalAmount = $unitCount * $pricing->price; // Total biaya
+
+            // Simpan data pembayaran
+            $payment->update(['amount' => $totalAmount]);
+        }
+
         return view('payments.index', compact('payments'));
     }
 
@@ -37,7 +52,7 @@ class PaymentController extends Controller
         $pricing = \App\Models\Pricing::findOrFail($validated['pricing_id']);
 
         // Hitung durasi aktual dan jumlah unit plan
-        $totalMinutes = $session->duration; // Durasi dari sesi
+        $totalMinutes = $session->end_time ? \Carbon\Carbon::parse($session->end_time)->diffInMinutes(\Carbon\Carbon::parse($session->start_time)) : \Carbon\Carbon::now()->diffInMinutes(\Carbon\Carbon::parse($session->start_time));
         $unitCount = ceil($totalMinutes / $pricing->duration_minutes); // Hitung jumlah plan yang dibutuhkan
         $totalAmount = $unitCount * $pricing->price; // Total biaya
 
@@ -57,7 +72,11 @@ class PaymentController extends Controller
 
     public function edit(Payment $payment)
     {
-        return view('payments.edit', compact('payment'));
+        $users = \App\Models\User::all();
+        $sessions = \App\Models\Session::all();
+        $pricings = \App\Models\Pricing::all();
+
+        return view('payments.edit', compact('payment', 'users', 'sessions', 'pricings'));
     }
 
     public function update(Request $request, Payment $payment)
@@ -66,7 +85,6 @@ class PaymentController extends Controller
             'user_id' => 'required|exists:users,id',
             'session_id' => 'required|exists:sessions,id',
             'pricing_id' => 'required|exists:pricings,id',
-            'amount' => 'required|numeric|between:0.01,999999.99',
             'status' => 'required|in:pending,completed,failed'
         ]);
 
@@ -80,3 +98,4 @@ class PaymentController extends Controller
         return redirect()->route('payments.index')->with('success', 'Payment deleted successfully');
     }
 }
+

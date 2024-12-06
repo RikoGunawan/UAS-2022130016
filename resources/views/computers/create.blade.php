@@ -4,7 +4,7 @@
     <div class="container">
         <main>
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger text-white">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -13,9 +13,8 @@
                 </div>
             @endif
 
-
             <form action="{{ route('computers.store') }}" method="POST" enctype="multipart/form-data">
-                <div class='row'>
+                <div class='row text-white'>
                     @csrf
                     <div class="row">
                         <div class="col-5">
@@ -77,3 +76,5 @@
         </main>
     </div>
 @endsection
+
+

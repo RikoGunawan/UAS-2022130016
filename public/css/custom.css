@@ -173,3 +173,6 @@ td img {
     margin-top: 10px;
 }
 
+.form-label, .container{
+    color: white;
+}

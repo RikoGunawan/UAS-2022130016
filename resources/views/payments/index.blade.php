@@ -13,7 +13,6 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID</th>
                                 <th>User</th>
                                 <th>Session</th>
                                 <th>Plan</th>
@@ -28,7 +27,6 @@
                             @foreach ($payments as $index => $payment)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $payment->id }}</td>
                                     <td>{{ $payment->user->name }}</td>
                                     <td>{{ $payment->session->id }}</td>
                                     <td>{{ $payment->pricing->plan_name }}</td>

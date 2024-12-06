@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -45,12 +45,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="amount" class="form-label">Amount</label>
-                <input type="number" step="0.01" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount', $payment->amount) }}">
-                @error('amount')
+                <label for="pricing_id" class="form-label">Plan</label>
+                <select class="form-control @error('pricing_id') is-invalid @enderror" id="pricing_id" name="pricing_id">
+                    <option value="">Select Plan</option>
+                    @foreach ($pricings as $pricing)
+                        <option value="{{ $pricing->id }}" {{ old('pricing_id', $payment->pricing_id) == $pricing->id ? 'selected' : '' }}>{{ $pricing->plan_name }}</option>
+                    @endforeach
+                </select>
+                @error('pricing_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
 
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
@@ -68,3 +74,4 @@
         </form>
     </div>
 @endsection
+

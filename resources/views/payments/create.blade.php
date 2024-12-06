@@ -62,7 +62,7 @@
             </div>
 
 
-            <p class="text-muted">
+            <p class="text-white">
                 <small>
                     The total amount will be calculated automatically based on the session duration and the selected plan.
                 </small>
