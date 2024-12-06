@@ -28,8 +28,8 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $payment->user->name }}</td>
-                                    <td>{{ $payment->session->id }}</td>
-                                    <td>{{ $payment->pricing->plan_name }}</td>
+                                    <td><a href="{{ route('sessions.show', $payment->session->id) }}" style="color:black">{{ $payment->session->id }}</a></td>
+                                    <td><a href="{{ route('pricings.index', $payment->pricing->id) }}" style="color:black">{{ $payment->pricing->plan_name }}</a></td>
                                     <td>Rp {{ number_format($payment->amount, 2, ',', '.') }}</td>
                                     <td>{{ $payment->status }}</td>
                                     <td>{{ $payment->created_at->format('d-m-Y H:i') }}</td>

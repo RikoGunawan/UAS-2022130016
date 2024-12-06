@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Session;
+use App\Models\Computer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -14,16 +16,19 @@ class SessionController extends Controller
         return view('sessions.index', compact('sessions'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        // AMBIL DATA
-        $users = \App\Models\User::all();
-        $computers = \App\Models\Computer::all();
+        // Ambil ID komputer dari query string
+        $computerId = $request->input('computer_id');
+        $selectedComputer = $computerId ? Computer::find($computerId) : null;
 
-        // KIRIM DATA KE VIEW
-        return view('sessions.create', compact('users', 'computers'));
+        // Ambil data lainnya
+        $users = User::all();
+        $computers = Computer::all();
+
+        // Kirim data ke view
+        return view('sessions.create', compact('users', 'computers', 'selectedComputer'));
     }
-
 
     public function store(Request $request)
     {
@@ -38,19 +43,17 @@ class SessionController extends Controller
         $end = Carbon::parse($validated['end_time']);
         $duration = $start->diffInMinutes($end); // Hitung durasi dalam menit
 
-        \App\Models\Session::create([
+        Session::create([
             'user_id' => $validated['user_id'],
             'computer_id' => $validated['computer_id'],
             'start_time' => $start,
             'end_time' => $end,
             'duration' => $duration, // Simpan durasi
-            'status' => $request->status,
+            'status' => $request->status ?? 'ongoing', // Status default 'ongoing' jika tidak diisi
         ]);
 
         return redirect()->route('sessions.index')->with('success', 'Session created successfully.');
     }
-
-
 
     public function edit(Session $session)
     {
@@ -75,5 +78,10 @@ class SessionController extends Controller
     {
         $session->delete();
         return redirect()->route('sessions.index')->with(['success' => 'Sesi berhasil dihapus']);
+    }
+
+    public function show(Session $session)
+    {
+        return view('sessions.show', compact('session'));
     }
 }

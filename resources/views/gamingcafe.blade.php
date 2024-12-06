@@ -22,21 +22,32 @@
                                 onerror="this.onerror=null;this.src='https://placehold.co/200';">
                         </a>
 
-                        <div class="card-body">
-                            <h8 class="card-text">{{ Str::padLeft($computer->id, 5, '#000') }}</h8>
-                            <h5 class="card-title">
-                                <a href="{{ route('computers.show', $computer) }}"
-                                    style="text-decoration: none; color: inherit; font-weight: bold;">
-                                    {{ $computer->name }}
+                        <div class="card-body d-flex flex-column">
+                            <div class="content d-flex flex-column flex-grow-1">
+                                <!-- Kolom Kiri -->
+                                <h8 class="card-text">{{ Str::padLeft($computer->id, 5, '#000') }}</h8>
+                                <h5 class="card-title">
+                                    <a href="{{ route('computers.show', $computer) }}"
+                                        style="text-decoration: none; color: inherit; font-weight: bold;">
+                                        {{ $computer->name }}
+                                    </a>
+                                </h5>
+                                <div>
+                                    <span class="badge rounded-pill bg-info">Tier: {{ $computer->tier }}</span>
+                                    <span class="badge rounded-pill bg-{{ $computer->status == 'available' ? 'success' : 'danger' }}">
+                                        {{ ucfirst($computer->status) }}
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Kolom Kanan: Tombol di Pojok Bawah -->
+                            <div class="button-container">
+                                <a href="{{ route('sessions.create', ['computer_id' => $computer->id]) }}" class="btn btn-primary">
+                                    Book Now
                                 </a>
-                            </h5>
-                            <span class="badge rounded-pill bg-info">Tier: {{ $computer->tier }}</span>
 
-                                <span class="badge rounded-pill bg-{{ $computer->status == 'available' ? 'success' : 'danger' }}">
-                                    {{ ucfirst($computer->status) }}
-                                </span>
-
+                            </div>
                         </div>
+
                     </div>
                 </div>
             @endforeach
@@ -46,5 +57,4 @@
         </div>
     </div>
 @endsection
-
 

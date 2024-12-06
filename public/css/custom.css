@@ -121,6 +121,7 @@ td img {
 /* KARTU */
 
 .photo-frame {
+    margin-top: 20px;
     border: 5px solid #ddd;
     padding: 10px;
     background-color: #fff;
@@ -129,7 +130,8 @@ td img {
     width: 300px;
     height: 200px;
     display: flex;
-    align-items: center;
+    text-align: left;
+    /* align-items: center; */
     justify-content: center;
     margin-bottom: 50px;
 }
@@ -183,4 +185,23 @@ td img {
     object-fit: cover;
 }
 
+/* .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    position: relative;
+} */
+
+.card-body .content {
+    flex: 1; /* Kolom kiri lebih besar */
+}
+
+.card-body .button-container {
+    flex: 0 0 auto; /* Kolom kanan hanya sebesar kontennya */
+    position: absolute;
+    bottom: 10px; /* Posisi tombol di pojok kanan bawah */
+    right: 10px;
+}
 

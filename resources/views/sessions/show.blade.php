@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <th>Start Time</th>
-            <td>{{ $session->start_time->format('d-m-Y H:i') }}</td>
+            <td>{{ \Carbon\Carbon::parse($session->start_time)->format('d-m-Y H:i') }}</td>
         </tr>
         <tr>
             <th>End Time</th>
-            <td>{{ $session->end_time ? $session->end_time->format('d-m-Y H:i') : '-' }}</td>
+            <td>{{ $session->end_time ? \Carbon\Carbon::parse($session->end_time)->format('d-m-Y H:i') : '-' }}</td>
         </tr>
         <tr>
             <th>Status</th>
