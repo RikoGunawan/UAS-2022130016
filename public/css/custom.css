@@ -1,21 +1,20 @@
 /* public/css/custom.css */
 
 /* Styling untuk background image */
-html {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-image: url('../images/background-robot.jpeg');
+    background-size: cover; /* Menutupi seluruh halaman */
+    background-position: center; /* Posisi gambar di tengah */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+    background-attachment: fixed; /* Background tetap saat scroll */
 }
 
 body {
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    background-image: url('../images/background-robot.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 #app {

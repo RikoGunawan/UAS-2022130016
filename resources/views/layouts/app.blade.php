@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Gaming Cafe') }}</title>
+    {{-- <title>{{ config('app.name', 'Gaming Cafe') }}</title> --}}
+    <title>Gaming Cafe</title>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -26,7 +28,7 @@
     <div id="app">
         <div class="custom-navbar">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Gaming Cafe') }}
+                Gaming Cafe
             </a>
 
             <ul class="navbar-links navbar-left">
