@@ -35,23 +35,38 @@ Aplikasi ini dibangun menggunakan framework **Laravel** dengan antarmuka yang mo
 
 ## 📸 **Tangkapan Layar**
 
-| **Login Screen** | **Dashboard** | **Manajemen Komputer** |
-|-------------------|---------------|-------------------------|
-| ![Login Screen](https://github.com/user-attachments/assets/904831c7-90ac-4e4c-b294-26ce298c4e3a) | ![Warnet1](https://github.com/user-attachments/assets/134e5b09-fdc0-4acb-997d-fd248768f95a) | ![Warnet1b](https://github.com/user-attachments/assets/cab6d635-ede1-4c11-a97a-433fc7d33a1a) |
+### Login Screen
+![Login Screen](https://github.com/user-attachments/assets/904831c7-90ac-4e4c-b294-26ce298c4e3a)
 
-| **Detail Komputer** | **Riwayat Transaksi** | **Sistem Reward** |
-|----------------------|-----------------------|--------------------|
-| ![Warnet2](https://github.com/user-attachments/assets/faf992f5-1632-4736-896d-6f448c04a2a1) | ![Warnet3](https://github.com/user-attachments/assets/4b776360-ca43-4a55-af1f-43f00d6e3993) | ![Warnet4](https://github.com/user-attachments/assets/910c8c7f-075a-41c7-8cfb-9a78679a4e5e) |
+### Dashboard
+![Warnet1](https://github.com/user-attachments/assets/134e5b09-fdc0-4acb-997d-fd248768f95a)
 
-| **Sistem Poin** | **Pengaturan** | **Pemesanan Komputer** |
-|------------------|----------------|-------------------------|
-| ![Warnet5](https://github.com/user-attachments/assets/d093d2e9-0f11-4fa1-a2f2-8038621b1646) | ![Warnet6](https://github.com/user-attachments/assets/f8b263a6-3f9f-43ef-9b86-b6cb5797ea7c) | ![Warnet7](https://github.com/user-attachments/assets/fcb751af-8aed-4b5f-a2e0-b80b39cba73f) |
+### Manajemen Komputer
+![Warnet1b](https://github.com/user-attachments/assets/cab6d635-ede1-4c11-a97a-433fc7d33a1a)
 
-| **Daftar Pengguna** | **Pengaturan Admin** |
-|----------------------|-----------------------|
-| ![Warnet8](https://github.com/user-attachments/assets/ac9c834a-9b68-40f6-8457-7b41fd640598) | ![Warnet9](https://github.com/user-attachments/assets/0e1c336c-e387-4005-8e6a-3ff45589f7ee) |
+### Detail Komputer
+![Warnet2](https://github.com/user-attachments/assets/faf992f5-1632-4736-896d-6f448c04a2a1)
 
----
+### Riwayat Transaksi
+![Warnet3](https://github.com/user-attachments/assets/4b776360-ca43-4a55-af1f-43f00d6e3993)
+
+### Sistem Reward
+![Warnet4](https://github.com/user-attachments/assets/910c8c7f-075a-41c7-8cfb-9a78679a4e5e)
+
+### Sistem Poin
+![Warnet5](https://github.com/user-attachments/assets/d093d2e9-0f11-4fa1-a2f2-8038621b1646)
+
+### Pengaturan
+![Warnet6](https://github.com/user-attachments/assets/f8b263a6-3f9f-43ef-9b86-b6cb5797ea7c)
+
+### Pemesanan Komputer
+![Warnet7](https://github.com/user-attachments/assets/fcb751af-8aed-4b5f-a2e0-b80b39cba73f)
+
+### Daftar Pengguna
+![Warnet8](https://github.com/user-attachments/assets/ac9c834a-9b68-40f6-8457-7b41fd640598)
+
+### Pengaturan Admin
+![Warnet9](https://github.com/user-attachments/assets/0e1c336c-e387-4005-8e6a-3ff45589f7ee)
 
 ## 🛠️ **Instalasi dan Pengaturan**
 
