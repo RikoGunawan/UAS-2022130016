@@ -92,7 +92,7 @@ Contoh:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=warnet_cafe
+DB_DATABASE=warnet-management
 DB_USERNAME=root
 DB_PASSWORD=
 ```
